@@ -10,8 +10,8 @@ using BenchmarkDotNet.Running;
 //    - LLC_REFS - Last level cache demand requests from this core
 // NOTE: To use PMC hardware counters you have to DISABLE virtualization om your machine!
 
-//BenchmarkRunner.Run<AccessPatternsBenchmarks>();
-//BenchmarkRunner.Run<FalseSharingBenchmarks>();
+BenchmarkRunner.Run<AccessPatternsBenchmarks>();
+BenchmarkRunner.Run<FalseSharingBenchmarks>();
 
 public class AccessPatternsBenchmarks
 {
