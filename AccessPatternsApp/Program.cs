@@ -62,12 +62,12 @@ public class FalseSharingBenchmarks
         Thread[] workers = new Thread[4];
         for (int i = 0; i < 4; ++i)
         {
-            workers[i] = new Thread(new ParameterizedThreadStart(idx =>
+            workers[i] = new Thread(idx =>
             {
                 int index = (int)idx;
                 for (int j = 0; j < Size; ++j)
                     sharedData[index] = sharedData[index] + 1;
-            }));
+            });
         }
         for (int i = 0; i < 4; ++i) workers[i].Start(i);
         for (int i = 0; i < 4; ++i) workers[i].Join();
@@ -79,12 +79,12 @@ public class FalseSharingBenchmarks
         Thread[] workers = new Thread[4];
         for (int i = 0; i < 4; ++i)
         {
-            workers[i] = new Thread(new ParameterizedThreadStart(idx =>
+            workers[i] = new Thread(idx =>
             {
                 int index = (int)idx;
                 for (int j = 0; j < Size; ++j)
                     sharedData2[index * 16] = sharedData2[index * 16] + 1;
-            }));
+            });
         }
         for (int i = 0; i < 4; ++i) workers[i].Start(i);
         for (int i = 0; i < 4; ++i) workers[i].Join();
@@ -96,12 +96,12 @@ public class FalseSharingBenchmarks
         Thread[] workers = new Thread[4];
         for (int i = 0; i < 4; ++i)
         {
-            workers[i] = new Thread(new ParameterizedThreadStart(idx =>
+            workers[i] = new Thread(idx =>
             {
                 int index = (int)idx + 1;
                 for (int j = 0; j < Size; ++j)
                     sharedData3[index * 16] = sharedData3[index * 16] + 1;
-            }));
+            });
         }
         for (int i = 0; i < 4; ++i) workers[i].Start(i);
         for (int i = 0; i < 4; ++i) workers[i].Join();
